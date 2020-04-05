@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const { check, validationResult } = require('express-validator');
-const stripe = require('stripe')('sk_test_etslWeuOUVx1Ygpq2MeTSGCG007zTS3tyD'); //Comment out api key before putting on github
+const stripe = require('stripe')(''); //Comment out api key before putting on github
 
 const router = express.Router();
 const Restaurant = mongoose.model('restaurant'); //Add same for menu if working
@@ -73,7 +73,7 @@ router.post('/checkout', async (req, res) => {
     metadata: {integration_check: 'accept_a_payment'},
   });
 
-  res.render('checkout', {title: 'render checkout page', publishableKey: 'pk_test_GZg5TkqlxznEkPGcNrjAJPli00gXt3dfhp', clientSecret: paymentIntent.client_secret});
+  res.render('checkout', {title: 'render checkout page', publishableKey: '', clientSecret: paymentIntent.client_secret});
   // Send publishable key and PaymentIntent details to client
   //res.send({
   //  
