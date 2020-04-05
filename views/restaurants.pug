@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    body#page-results
+        if restaurants.length
+            each restaurant in restaurants
+                .d-flex.justify-content-center
+                    .card.border-dark.mb-4.bg-light.mb-3.text-center(style='width:40vw; height:calc(350px + 7.5vw);')
+                        img.card-img-top(src=restaurant.Name.split(" ").join('').toLowerCase().concat(".jpg"), id="restaurantImg", alt='Restaurant logo pic')          
+                        .card-body
+                            h5.card-title #{restaurant.Name}
+                            h6.card-title #{restaurant.Location}, #{restaurant["City"].Zipcode}
+                            p.card-text
+                            | Specialty: #{restaurant.MainFood}
+                            br
+                            form(method='POST', action='/menu')
+                                input#restName(type='hidden', name='restName', value=restaurant.Name)
+                                button.btn.btn-danger(type='submit') Order
+        else
+            .card(style='width: 100vw;') 
+                .card-body
+                    p.card-text No restaurants found :(

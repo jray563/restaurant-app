@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    body#page-menu
+        if menu.length
+            .d-flex.justify-content-end
+                a(href='/shoppingcart')
+                    img(src='shopping-cart.jpg', alt='Link to cart', style='width:42px;height:42px;border:0')
+            .d-flex.justify-content-center
+                    .card(style='width: 40vw;')
+                        each food_item, index in menu[0].Items
+                            img.card-img-top(src=menu[0].Images[index], alt='sample img')
+                            .card-body
+                                h5(align='center').card-title #{food_item}
+                                h6(align='center').card-title Price: #{menu[0].Prices[index]}
+                                form.form-inline(method='POST', action='/sendorder')
+                                    .input-group.mb-2.mr-sm-2
+                                        .input-group-prepend
+                                            .input-group-text  
+                                                label(for='itemOrder') How many?
+                                        input#itemOrder.form-control(type='number', name="itemOrder", aria-label='Large', aria-describedby='inputGroup-sizing-sm', min="0", max="10")
+                                        input#restName(type='hidden', name='restName', value=menu[0].Store)
+                                        input#itemName(type='hidden', name='itemName', value=food_item)
+                                        input#itemPrice(type='hidden', name='itemPrice', value=menu[0].Prices[index])
+                                    button.btn.btn-success(type='submit') Add item
+            
+            
+                  
+        else
+            p No menus found :(
+
+
+
+        

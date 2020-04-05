@@ -1,0 +1,47 @@
+html,body {
+    height: 100%;
+}
+
+#page-front {
+    height:100%;
+    background-image: url("background.jpg");
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-color: rgb(220, 230, 173);
+  }
+
+#page-results {
+    height:100%;
+    background-image: url("background-1.jpg");
+    text-align: center;
+    background-size: cover;
+    
+    background-position: 50% 50%;
+    background-color: rgb(220, 230, 173);
+}
+
+#page-menu {
+    height:100%;
+    background-image: url("background-1.jpg");
+    text-align: center;
+    background-size: cover;
+    
+    background-position: 50% 50%;
+    background-color: rgb(220, 230, 173);
+}
+
+.card-img-top {
+    width: 100%;
+    height: calc(100px + 7.5vw); 
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+form, input[type='checkbox'] {
+    color: white !important;
+}
+

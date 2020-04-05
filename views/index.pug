@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    if restaurants.length
+        table
+            tr
+                th Name
+                th Location
+                th MainFood
+                th City
+            each restaurant in restaurants
+                tr
+                    td= restaurant.Name
+                    td= restaurant.Location
+                    td= restaurant.MainFood
+                    td= restaurant.City
+    else
+        p No restaurants found :(

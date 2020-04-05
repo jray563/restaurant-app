@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Checkout Page
+    script(src='https://js.stripe.com/v3/')
+    script(src='/script.js', defer='')
+  body
+    .sr-root
+      .sr-main
+        form#payment-form.sr-payment-form
+          .sr-combo-inputs-row
+            #card-element.sr-input.sr-card-element
+          #card-errors.sr-field-error(role='alert')
+          button#submit
+            #spinner.spinner.hidden
+            span#button-text Pay
+            span#order-amount
+        .sr-result.hidden
+            br                
